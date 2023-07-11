@@ -1,6 +1,6 @@
 def calculator(x, y, operator):
     if y == 0 and operator == '/':
-        return 'Not Possible'
+        return 'Not Defined!'
     
     dict_ops = {
         '+': x + y,
