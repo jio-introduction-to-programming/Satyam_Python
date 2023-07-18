@@ -241,3 +241,192 @@ orig_list = [1, 2, 3, 4]
 new_list = copy.deepcopy(orig_list)
 
 id(orig_list[1]) == id(new_list[1])
+
+type(set({'a':1}))
+
+print(set({'a':1}))
+
+set([1,2,3,2])
+
+vegetables = {'tomato', 'carrot', 'radish', 'brinjal'}
+vegetables.add('pumpkin')
+vegetables.clear()
+vegetables
+
+vegetables = {'tomato', 'carrot', 'radish', 'brinjal'}
+veg_copy = vegetables.copy() # Creates a shallow copy
+veg_copy
+
+a = {1,2,3,4,5}
+b = {4, 5, 6, 7} 
+c = a-b # a - b or a.difference(b)
+
+a.difference_update(b)
+a 
+
+x = vegetables.discard('ladyfinger')
+x = vegetables.discard('radish')
+vegetables
+
+a = {1,2,3,4,5}
+b = {4, 5, 6, 7} 
+a.intersection_update(b)
+a
+
+a = {1,2,3}
+b = {3,4,5}
+c = {6,7,8}
+a.isdisjoint(b)
+a.isdisjoint(c)
+
+d = {1,2}
+d.issubset(b)
+d.issubset(a)
+
+a.issuperset(d)
+
+a = {2,3,4,1,5,6,7,8,9,10}
+b = a.pop()
+a
+b
+a.remove(10)
+a
+a.remove(11) # keyerror
+a.discard(11) # None - no error
+
+a = {1,2,3}
+b = {3,4,5}
+a.symmetric_difference(b)
+a.symmetric_difference_update(b)
+a
+
+a.union(b)
+a
+
+a.update(b)
+a
+##############################################
+t = tuple()
+t
+type(t)
+
+u = ()
+u
+type(u)
+
+# Parenthesis Overloading Problem
+
+a = (1)
+type(a)
+
+b = (True)
+type(b)
+
+c = ('first')
+type(c)
+
+d = (1,)
+type(d)
+
+e = (1, 1)
+type(e)
+
+# tuple operations: indexing, slicing, iterating
+
+# tuple methods: .count(num), .index(num)
+
+def sum_of_list(lst):
+    return sum(lst)
+
+a_lst = [1, 2, 3]
+print(sum_of_list(a_lst))
+
+print((1,2,3)*2)
+print((1,2,3)+(4,))
+
+##########################################################
+
+# Recursion
+
+def factorial(n):
+    # base case: factorial or 0 and 1 is 1
+    if n==0 or n==1:
+        return 1
+    else:
+        # Recursive case: multiply n with factorial of (n-1)
+        return n*factorial(n-1)
+
+factorial(5)
+
+# Unpacking
+
+# args
+def func(a, b, c):
+    print(a, b, c)
+
+args = [1,2,3]
+func(*args)
+
+# keyword args
+def func(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
+func(key=1, value=2)
+
+def count_vowels(string):
+    vowels = 'aeiouAEIOU'
+    counter = 0
+    for char in string:
+        if char in vowels:
+            counter += 1
+
+    return counter
+
+string = 'Hello wOrld!'
+print(count_vowels(string))
+
+####################
+
+# string methods
+
+# string.capitalize() --> it capitalize the first letter of a sentence and everything else in lowercase
+print(string.capitalize(), string)
+
+# string.casefold() --> returns a lowercase version of the string, suitable for case-insensitive comparision
+# string.center(width [,filler])
+string = 'hello'
+centered_string = string.center(10, '-')
+print(centered_string)
+
+print(centered_string.center(10)) # default is ' ' (space)
+
+# count(substring [, start [,end]]) --> returns the number of non-overlapping occurances of a substring in a string
+
+string = 'hello world'
+count = string.count('o')
+print(count)
+
+# string.endswith(substr) --> returns True or False
+# string.startsswith(substr) --> returns True or False
+# string.find(sub [, start [, end]]) --> returns the index of first 
+# string.isalnum(), isalpha(), isdecimal(), isdigit(), islower(), isspace()
+# ''.join(list or iterable), string.lower(), string.split(''), string.swapcase()
+# string.strip(char) --> removes the leading and trailing characters provided
+# isascii() --> checks if string consists only of ASCII characters
+
+print('123'.isdecimal()) # True
+print('123.11'.isdecimal()) # False
+print('X'.isdecimal()) # False
+print('123'.isdigit()) # True
+print('  '.isspace()) # True
+print(' '.join('hello'))
+print('###abc## '.strip('#'))
+##########################
+
+# format(*args, **kwargs)
+
+# format_map(dict) --> maps the keys, values from a dictionary to string.format_map()
+
+##########################
+print('abc'[::-1])
