@@ -430,3 +430,199 @@ print('###abc## '.strip('#'))
 
 ##########################
 print('abc'[::-1])
+##############################################################################
+
+### OOP - Object Oriented Programming ###
+
+class Car:
+    name = None
+    color = None
+
+car1 = Car()
+car1.name = "Maruti"
+car1.color = "White"
+print(car1.name)
+print(car1.color)
+
+#####################################
+
+# Constructor of class in Python
+
+class Car:
+     
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+        self.state = 'OFF'
+    
+    def start(self):
+        self.state = 'ON'
+
+
+maruti = Car('m-800', 'blue')
+maruti.start()
+maruti.color
+print(maruti.state)
+
+thar = Car('XUV-300', 'white')
+# thar.start()
+print(thar.state)
+
+#######################################
+
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"Hello, my name is {self.name} and I'm {self.age} years old.")
+
+person1 = Person('John', 26)
+print(person1.age)
+person1.greet()
+
+#######################################
+
+class Node:
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def set_next(self, next):
+        self.next = next
+
+
+node1 = Node(2)
+node2 = Node(4)
+print(type(node2))
+node1.set_next(id(node2))
+node3 = Node(6)
+node2.set_next(node3)
+print(node1.next)
+
+#######################################
+
+## Inheritence ##
+
+class Employee:
+    def __init__(self, name, employee_id):
+        self.name = name
+        self.employee_id = employee_id
+
+    def calculate_salary(self):
+        print("Calculating salary:...")
+
+class Manager(Employee):
+    def __init__(self, name, employee_id):
+        super().__init__(name, employee_id)
+
+    def approve_leave(self):
+        print("Approving leave...")
+
+class Engineer(Employee):
+    def __init__(self, name, employee_id):
+        super().__init__(name, employee_id)
+
+###############################################
+
+# __dunder_method__: these are often referred to as 'magic' or 'dunder' (double underscore) method
+### we can have multi-level inheritence
+
+class Furniture:
+    def __init__(self, material):
+        self.material = material
+
+    def sit(self):
+        print('Sitting...')
+
+###############################################
+
+# Lambda functions
+
+square = lambda x: x**2
+square(2)
+
+# map(function, iterable) # can be any function /lambda, inbuilt, etc.
+# filter(function, iterable) # any function that evaluates to boolean.
+
+
+# cumulative sum array or prefix sum array
+
+#################################################################################################
+
+# 24-07-2023
+
+### File Operations ###
+
+# Open the file with write 'w' mode
+file1 = open('example.txt', 'w')
+
+# write some data to the file
+file1.write('Persisting data in files using Python')
+
+# close the file
+file1.close()
+
+import io
+# Read the file
+img_file = io.open('C:\\Users\\Richa\\Downloads\\Zoom-Meeting-Video-Iphone-Portrait-Mode-Background.jpeg', encoding="utf8")
+print(img_file.read())
+
+file1_read = open('example.txt', 'r')
+file1_read.read()
+file1_read.close()
+
+import os
+
+os.remove('example.txt')
+
+# to overwrite, simply do the write operation to the file
+
+# Appending to a file
+
+file = open('example.txt', 'a')
+
+# write some data to the file
+file.write('\nAppending data in files using Python')
+
+# close the file
+file1.close()
+
+### Binary files in python
+bin_file = open('binary_file.bin', 'wb')
+
+bin_file.write(b'Writing to the binary file')
+
+bin_file.close()
+
+## reading an image file
+
+# import cv2
+
+# load image using 'imread'
+# img = 
+
+import pickle
+data = {'key': 'value'}
+
+
+import json
+
+
+
+
+#################################################################################################
+
+from datetime import datetime, date
+
+def datetime_to_str_1(dt):
+    # Convert to format "2023-07-19"
+    form_date = dt.strftime('%Y-%m-%d')
+    return form_date
+
+print(datetime_to_str_1(date(2023,7,24)))
+
+print(date(2023, 7, 19))
