@@ -594,9 +594,13 @@ file1.close()
 ### Binary files in python
 bin_file = open('binary_file.bin', 'wb')
 
-bin_file.write(b'Writing to the binary file')
+# bin_file.write(b'Writing to the binary file')
+bin_file.write(b'[0,1,2,3,4]')
 
 bin_file.close()
+
+list('[0,1,2,3,4]') #['[', '0', ',', '1', ',', '2', ',', '3', ',', '4', ']']
+eval('[0,1,2,3,4]')
 
 ## reading an image file
 
@@ -611,7 +615,8 @@ data = {'key': 'value'}
 
 import json
 
-
+import sys
+sys.version
 
 
 #################################################################################################
@@ -626,3 +631,100 @@ def datetime_to_str_1(dt):
 print(datetime_to_str_1(date(2023,7,24)))
 
 print(date(2023, 7, 19))
+
+print([5*x for x in range(1, 21)])
+
+#################################################################################################
+
+### Function closure concept ###
+
+def create_num_list(num):
+    def multiply_by(n):
+        return list(map(lambda i: n*i, range(1, num+1)))
+    return multiply_by
+
+multiplier = create_num_list(20)
+print(multiplier(5))
+print(multiplier(7))
+
+#################################################################################################
+
+import sys
+
+sys.getsizeof(1) # 28
+sys.getsizeof(111) # 28
+
+sys.getsizeof('') # 49
+sys.getsizeof('a') # 50
+sys.getsizeof('ab') # 51
+
+sys.getsizeof(True) # 28
+sys.getsizeof(False) # 28
+
+sys.getsizeof(1.1) # 24
+
+dir(1) 
+'''
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', 
+'__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__',
+ '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__getstate__', '__gt__',
+   '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', 
+   '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__',
+     '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__',
+       '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__',
+         '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__',
+           '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', 
+           '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'as_integer_ratio', 
+           'bit_count', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag',
+             'numerator', 'real', 'to_bytes']
+'''
+type(1) #<class 'int'>
+
+##################################################################################
+
+### Debugging the Python Code - Python Debugger (pdb)
+
+import pdb
+
+def abc():
+    print(1)
+    pdb.set_trace()
+    print(2)
+    print(3)
+    print(4)
+
+abc()
+
+# type n in the python shell to go to next line one line at a time.
+# type c to exit debugger mode and continue further code at once
+
+##################################################################################
+
+# checking dependencies
+
+# pip freeze --> to check all the dependencies to be installed when sending our package to other place
+# pip freeze > requirements.txt --> to get them into a file
+
+# pip install -r requirements.txt --> to install all dependencies at once reading from the file
+
+##################################################################################
+
+def fact(n):
+    if n in [0, 1] :
+        return 1
+    elif n > 1:
+        return n*fact(n-1)
+    else:
+        return 'not possible'
+    
+print((fact(5)))
+
+
+(4**0.5)-int(4**0.5) == 0
+
+import sys
+print (sys.version)
+
+set([1, 1, (3,4), (3,4)])
+
+eval('')
