@@ -728,3 +728,95 @@ print (sys.version)
 set([1, 1, (3,4), (3,4)])
 
 eval('')
+###############
+
+tup1 = (1, [2, 3], 4)
+tup2 = tup1
+tup2[1][0] = 'I am immutable'
+print(tup1)
+###############
+
+data = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33]
+data = data[::-1] 
+for i in range(len(data)-1, 0, -1): 
+    print(chr(data[i]), end='')
+###############
+
+import datetime
+print(type(datetime.datetime.now()))
+###############
+
+def logFlight(val, flightLog=[]):
+    flightLog.append(val)
+    return flightLog
+
+flightLog1 = logFlight('Flight 101')
+flightLog2 = logFlight('Flight 202', [])
+flightLog3 = logFlight('Flight 303')
+
+print("flightLog1 = %s" % flightLog1)
+print("flightLog2 = %s" % flightLog2)
+print("flightLog3 = %s" % flightLog3)
+###############
+
+list_1 = ['a', 'b', 'c', 'd', 'e']
+list_2 = ['1', '2', '3', '4', '5']
+
+operation = list_1[10:] or list_2
+print(operation)
+################
+
+lambs = [ lambda x: x+i for i in range(4) ]
+vals = [ lambs[i](i) for i in range(4) ]
+print(lambs)
+print(vals)
+#################
+
+from datetime import datetime
+
+file = open("log.txt", "w")
+for i in range(5):
+    file.write(f"Log {i} = 2023-08-01 13:45:23.34355{i}\n")
+file.close()
+
+file = open("log.txt", "r")
+content = file.read()
+file.close()
+
+lines = content.split("\n")
+output = datetime.strptime(lines[-2].split("=")[1].strip(), "%Y-%m-%d %H:%M:%S.%f")
+
+print(output)
+#################
+
+
+'''
+def bfs(time_map, start, end):
+    #initialization
+    found = False
+    visited = []
+    
+    parents = {}
+
+    for node in time_map:
+        if node == end:
+            found = True
+            break
+
+        if node not in visited:
+            visited.append(node):
+
+            expand_count, children = expand(node, time_map)
+
+            for child in children:
+                if child not in visited:
+                    queue.append(child)
+                    parents[child] = node
+
+    path = [end]
+    if found == True:
+        node = end
+
+        while (node != end):
+            pass
+'''
